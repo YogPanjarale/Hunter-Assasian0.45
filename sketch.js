@@ -56,10 +56,14 @@ function draw(){
   //showButtons();
   //console.log(frameRate())
     background(230,250,250)
-    level.display()
+      level.display()
+   
+    level.drawground()
+    e1.display();
+    level.drawWalls()
     player.display()
    // level.update()
-  e1.display();
+  //e1.display();
    for (let i = 0; i < parr.length; i++) {
     parr[i].display()
   
