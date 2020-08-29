@@ -33,7 +33,8 @@ class Enemy {
 		
 			var t=this.target;var s =this.sprite;var speed=gb/8
 		//console.log(gi(s.x,s.y),gi(t.x,t.y))
-		var gs=gi(s.x,s.y),gt=gi(t.x,t.y)
+		//var gs=gi(s.x,s.y),gt=gi(t.x,t.y)
+		this.cone(s.x,s.y,s.rotation)
 		    s.setVelocity(0,0)
 			if(t.x>s.x){s.velocity.x=speed;}
 			else if(t.x<s.x){s.velocity.x=-speed;}
@@ -51,6 +52,21 @@ class Enemy {
 		 console.log("rotation: "+s.rotation,"heading: "+s.velocity.heading(),"idx:"+this.idx)
 			this.sprite=s;
 	      
+	}
+	cone(x,y,a){		
+		//var gs={x:int(((1/gb)*x)-1),
+		//		y:int(((1/gb)*y)-1)}
+		//console.log("gs: ",gs)
+		//var result=getNeighbor(this.arr,gs.x-1,gs.y-1)
+		//console.log(result) 
+		push()
+		translate(x,y)
+		rotate(a)
+		//console.log(get(x+gb, y))
+		fill(255,100)
+		noStroke();
+		arc(0, 0, gb*4, gb*3, -45,45, PIE);
+		pop()
 	}
 	moveTo(i,j){
 	  this.target.x=(i+1)*gb
