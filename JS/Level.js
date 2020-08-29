@@ -22,27 +22,64 @@ class Level{
     display(){
         var arr=this.data
         var gapBetween=this.gapBetween
+     
+     //this.dtod();
+      // this.highlight(mouseX, mouseY,true)
+      }
+     drawWalls(){
+          var arr=this.data
         for(var i=0; i<arr.length;i++){
             for(var j=0; j<arr[i].length;j++){
                 var n=getNeighbor(arr,i,j)
                switch (arr[i][j]) {
                    case (10):
-                       this.t.wall1( gapBetween *(j+1),gapBetween*(i+1),n)
+                       this.t.wall1( gb *(j+1),gb*(i+1),n)
                        break;
                     case (11):
-                        this.t.wall2( gapBetween *(j+1),gapBetween*(i+1),n)
+                        this.t.wall2( gb *(j+1),gb*(i+1),n)
                         break;
                     case (12):
-                        this.t.wall3( gapBetween *(j+1),gapBetween*(i+1),n)
+                        this.t.wall3( gb *(j+1),gb*(i+1),n)
                         break;
                     case (13):
-                        this.t.wall4( gapBetween *(j+1),gapBetween*(i+1),n)
+                        this.t.wall4( gb *(j+1),gb*(i+1),n)
                         break;
+                    // case(1):
+                    //     this.t.ground1( gb *(j+1),gb*(i+1),n)
+                    //     break;
+                    // case(2):
+                    //     this.t.ground2( gapBetween *(j+1),gapBetween*(i+1),n)
+                    //     break;
+                   default:
+                       break;
+               }
+
+            }
+        }
+      }
+      drawground(){
+          var arr=this.data
+        for(var i=0; i<arr.length;i++){
+            for(var j=0; j<arr[i].length;j++){
+                var n=getNeighbor(arr,i,j)
+               switch (arr[i][j]) {
+                //    case (10):
+                //        this.t.wall1( gb *(j+1),gb*(i+1),n)
+                //        break;
+                //     case (11):
+                //         this.t.wall2( gb *(j+1),gb*(i+1),n)
+                //         break;
+                //     case (12):
+                //         this.t.wall3( gb *(j+1),gb*(i+1),n)
+                //         break;
+                //     case (13):
+                //         this.t.wall4( gb *(j+1),gb*(i+1),n)
+                //         break;
                     case(1):
-                        this.t.ground1( gapBetween *(j+1),gapBetween*(i+1),n)
+                        this.t.ground1( gb *(j+1),gb*(i+1),n)
                         break;
                     case(2):
-                        this.t.ground2( gapBetween *(j+1),gapBetween*(i+1),n)
+                        this.t.ground2( gb *(j+1),gb*(i+1),n)
                         break;
                    default:
                        break;
@@ -50,10 +87,7 @@ class Level{
 
             }
         }
-     //this.dtod();
-      // this.highlight(mouseX, mouseY,true)
       }
-    
     highlightPath(){ 
         if(this.result!=[])
                 {var r=this.result
